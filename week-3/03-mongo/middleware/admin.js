@@ -5,11 +5,11 @@ function adminMiddleware(req, res, next) {
   const username = req.body.username;
   const password = req.body.password;
 
-  const res = Admin.findOne({
+  const result = Admin.findOne({
     username: username,
     password: password,
   });
-  if (res) {
+  if (result) {
     return next();
   } else {
     res.status(404).send("Sorry");

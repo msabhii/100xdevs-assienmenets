@@ -2,25 +2,25 @@ const mongoose = require("mongoose");
 
 // Connect to MongoDB
 mongoose.connect(
-  "mongodb+srv://abhi:WDdPUczZTZotFwoc@cluster0.trxx9ft.mongodb.net/course_selling_app"
+  "mongodb+srv://msabhithakur7777:r5KJ6w6bvK3HKvsr@week3assignement.aqvxajj.mongodb.net/"
 );
 
 // Define schemas
 const AdminSchema = new mongoose.Schema({
   // Schema definition here
-  name: String,
+  username: String,
   password: String,
 });
 
 const UserSchema = new mongoose.Schema({
   // Schema definition here
-  name: String,
+  username: String,
   password: String,
   email: String,
   Course: [
     {
-      type: "Stdy",
-      ref: "Harkirat",
+      type: mongoose.Schema.ObjectId,
+      ref: "Courses",
     },
   ],
 });
@@ -30,7 +30,7 @@ const CourseSchema = new mongoose.Schema({
   description: String,
   imageLink: String,
   rate: Number,
-}); 
+});
 
 const Admin = mongoose.model("Admin", AdminSchema);
 const User = mongoose.model("User", UserSchema);
