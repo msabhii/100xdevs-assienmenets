@@ -17,9 +17,9 @@ const UserSchema = new mongoose.Schema({
   username: String,
   password: String,
   email: String,
-  Course: [
+  purchasedCourse: [
     {
-      type: mongoose.Schema.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       ref: "Courses",
     },
   ],

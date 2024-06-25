@@ -10,7 +10,7 @@ function adminMiddleware(req, res, next) {
     password: password,
   });
   if (result) {
-    return next();
+    next();
   } else {
     res.status(404).send("Sorry");
   }
