@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const secret = require("../index");
+const { JWT_SECRET } = require("../config");
 function userMiddleware(req, res, next) {
   // Implement user auth logic
   // You need to check the headers and validate the user from the user DB. Check readme for the exact headers to be expected
@@ -7,7 +7,7 @@ function userMiddleware(req, res, next) {
   const words = token.split("");
   const JwtToken = words[1];
 
-  const decodedValue = jwt.verify(JwtToken, secret);
+  const decodedValue = jwt.verify(JwtToken, JWT_SECRET);
   if (decodedValue.username) {
     next();
   } else {
