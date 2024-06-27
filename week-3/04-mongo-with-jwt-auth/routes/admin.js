@@ -51,11 +51,16 @@ router.post("/courses", adminMiddleware, (req, res) => {
   });
   res.json({
     msg: "Course created successfully",
+    courseId: newCourse._id,
   });
 });
 
-router.get("/courses", adminMiddleware, (req, res) => {
+router.get("/courses", adminMiddleware, async (req, res) => {
   // Implement fetching all courses logic
+  const response = await Course.find({});
+  res.json({
+    course: response,
+  });
 });
 
 module.exports = router;
