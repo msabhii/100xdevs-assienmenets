@@ -66,6 +66,7 @@ router.post("/courses/:courseId", userMiddleware, async (req, res) => {
   res.json({
     message: "Purchase complete!",
     id: courseId,
+    user: username,
   });
 });
 
